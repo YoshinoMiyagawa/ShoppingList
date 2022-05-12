@@ -18,9 +18,10 @@
         @if(ログインしているユーザ)
             アイテムの一覧を表示--}}
         
-            @if (count($items) > 0)
+            
                 <div class='countainer border-right border-left border-bottom rounded-bottom px-2 py-2'>
                     
+                    @if (count($items) > 0)
                         <div class='row '>
                             @foreach  ($items as $item)
                             <div class='col-md-8'>
@@ -43,26 +44,15 @@
                        
                        
                         @endforeach
-                         {{-- 
-                        @foreach ($items as $item)
-                        
-                            <div class='row'>
-                            
-                            
-                                <div class="col-8 ">
-                                {!! link_to_route('アイテム詳細表示へのルート', $item->name, ['item' => $item->id,]) !!}
-                                </div> 
-                            </div>
-                        @endforeach
-                    --}}
                     
+                @else
+                    <a>購入予定の商品はありません</a>
+                @endif 
+                
                     
                 </div>
                 
                 
-            @else
-                <a>購入予定の商品はありません</a>
-            @endif 
             
             
         {{--

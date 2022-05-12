@@ -19,9 +19,9 @@
             アイテムの一覧を表示--}}
         
             @if (count($items) > 0)
-                <div class='countainer'>
+                <div class='countainer border-right border-left border-bottom rounded-bottom px-2 py-2'>
                     
-                        <div class='row border-bottom'>
+                        <div class='row '>
                             @foreach  ($items as $item)
                             <div class='col-8'>
                                 {!! Form::open(['route' => ['items.show', 'itemId' => $item->id],'method' => 'get']) !!}
