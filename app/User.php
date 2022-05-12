@@ -36,4 +36,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    
+    
+    public function shoppinglists()
+    {
+        return $this->hasMany(Shoppinglist::class);
+    }
+    
+    public function items()
+    {
+        return $this->hasMany(Item::class);
+    }
+    
+    public function loadRelationshipCounts()
+    {
+        $this->loadCount('shoppinglists');
+        $this->loadCount('items');
+    }
+    
+    
 }

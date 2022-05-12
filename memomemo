@@ -1,0 +1,33 @@
+やることのメモ
+20220502:itemsとlistsのテーブルについて、
+いったんdeadlineとLinkのカラムを作らないマイグレーションファイルを作製したので、
+必要になったらまた作らないといけん
+
+
+0509のメンタリングのメモ
+     /shoppinglists/add/{token} 
+     function add(Reqeust $request,$token) { 
+         $shoppinglist = shoppinglist->where('link', $token)->first();
+     if(!$shoppinglist){
+         エラー表示 
+     } 
+     \Auth::user()->多対多のメソッド()->attach($shoppinglist->id); 
+     return redirect('xxxx'); }
+     
+     
+     
+     function random($length = 8) { 
+         return substr(bin2hex(random_bytes($length)), 0, $length); 
+         
+     } 
+     
+     
+     $id = 123; 
+     $token = "s".$id.random(16); print($token);
+     
+
+$shoppinglist = $user->shoppinglists()->create([ 'link' => substr(bin2hex(random_bytes(16)), 0, 16), ]); 
+$shoppinglist->link = "s".$list->id.$shoppinglist->link; 
+$shoppinglist->save();
+     
+     
